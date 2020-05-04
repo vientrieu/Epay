@@ -19,7 +19,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.get('/', function(req, res, next){
+  res.render('orderlist', { title: 'Danh sách đơn hàng' })
+});
 app.use('/order', order);
 
 // catch 404 and forward to error handler
